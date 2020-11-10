@@ -18,14 +18,13 @@
 
 window.addEventListener("load", onLoad);
 var arrayUsuarios;
+var arrayUsuariosFiltrador;
 
 function onLoad() {
   createUsers();
-
   console.log(arrayUsuarios);
-  var us = filter();
-  console.log(us);
-  console.log();
+  arrayUsuariosFiltrador = filter(arrayUsuarios);
+  console.log(arrayUsuariosFiltrador);
 }
 
 function createUsers() {
@@ -83,12 +82,11 @@ function createUsers() {
   ];
 }
 
-function filter(usuarios) {
-  var us = usuarios;
-  var usuariosFiltrados = [];
-  for (let i = 0; i < arrayUsuarios.l; i++) {
-    if (usuarios[i].country == "spain" && usuarios[i].money >= 200) {
-      usuariosFiltrados.push(usuarios[i]);
+function filter(arrayUsuarios) {
+  let usuariosFiltrados = [];
+  for (let i = 0; i < arrayUsuarios.length; i++) {
+    if (arrayUsuarios[i].country == "spain" && arrayUsuarios[i].money > 200) {
+      usuariosFiltrados.push(arrayUsuarios[i]);
     }
   }
   return usuariosFiltrados;
